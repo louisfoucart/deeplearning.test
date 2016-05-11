@@ -1,3 +1,5 @@
+package iris
+
 import org.deeplearning4j.datasets.iterator.impl.IrisDataSetIterator
 import org.deeplearning4j.eval.Evaluation
 import org.deeplearning4j.nn.api.Layer
