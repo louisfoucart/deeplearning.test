@@ -60,8 +60,8 @@ fun main(args : Array<String>) {
             .regularization(true)
             .l2(2e-4)
             .useDropConnect(true)
-            .list(2) // # NN layers (doesn't count input layer)
-            .layer(0, RBM.Builder(RBM.HiddenUnit.RECTIFIED, RBM.VisibleUnit.GAUSSIAN)
+            .list(
+                    RBM.Builder(RBM.HiddenUnit.RECTIFIED, RBM.VisibleUnit.GAUSSIAN)
                     .nIn(numRows * numColumns) // # input nodes
                     .nOut(3) // # fully connected hidden layer nodes. Add list if multiple layers.
                     .weightInit(WeightInit.XAVIER) // Weight initialization
@@ -70,12 +70,13 @@ fun main(args : Array<String>) {
                     .lossFunction(LossFunctions.LossFunction.RMSE_XENT) // Loss function type
                     .updater(Updater.ADAGRAD)
                     .dropOut(0.5)
-                    .build()) // NN layer type
-            .layer(1, OutputLayer.Builder(LossFunctions.LossFunction.MCXENT)
+                    .build(),
+                    OutputLayer.Builder(LossFunctions.LossFunction.MCXENT)
                     .nIn(3) // # input nodes
                     .nOut(outputNum) // # output nodes
                     .activation("softmax")
-                    .build()) // NN layer type
+                    .build()
+            )
             .build()
     val model = MultiLayerNetwork(conf)
     model.init()
@@ -91,7 +92,7 @@ fun main(args : Array<String>) {
     }
 
     log.info("Evaluate model....")
-    val eval = Evaluation<String>(outputNum)
+    val eval = Evaluation(outputNum)
     eval.eval(test.labels, model.output(test.featureMatrix, Layer.TrainingMode.TEST))
     log.info(eval.stats())
 

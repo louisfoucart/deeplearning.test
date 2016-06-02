@@ -21,7 +21,7 @@ import java.io.File
 import java.util.*
 
 fun main(args: Array<String>) {
-    val trainDataPath = "src/main/resources/shazam/data_train"
+    val trainDataPath = "data_train"
     val inputWidth = 13 // number of bands
     val codeMap: Map<String, Int> = readCodeMap(trainDataPath, inputWidth)
     val numberOfLabels = codeMap.size
@@ -54,7 +54,7 @@ fun main(args: Array<String>) {
     //net.rnnClearPreviousState() // TODO check to see if it goes into train fit loop
 
     log.info("evaluate model...")
-    val evaluation = Evaluation<String>()
+    val evaluation = Evaluation()
     testInput.forEach {
         val features = it.getFeatureMatrix()
         val labels = it.getLabels()

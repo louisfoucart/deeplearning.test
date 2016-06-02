@@ -22,15 +22,14 @@ repositories {
     }
 }
 
-//nd4j_version = '0.4-rc3.8'
+//nd4j_version = '0.4-rc3.9'
 
 dependencies {
     compile group: 'org.jetbrains.kotlin', name:'kotlin-stdlib', version: '1.0.1'
-    compile group: 'org.nd4j', name: 'canova-api', version: '0.0.0.15-SNAPSHOT' //'0.0.0.14' //
-    compile group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '0.4-rc3.9-SNAPSHOT' //'0.4-rc3.8'
-    //compile group: 'org.nd4j', name: 'nd4j-x86', version: '0.4-rc3.8'
-    compile 'org.nd4j:nd4j-native:0.4-rc3.9-SNAPSHOT'
-    compile 'org.nd4j:nd4j-native:0.4-rc3.9-SNAPSHOT:win-x86_64'
+    compile group: 'org.nd4j', name: 'canova-api', version: '0.0.0.15'
+    compile group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '0.4-rc3.9'
+    compile 'org.nd4j:nd4j-native:0.4-rc3.9'
+    compile 'org.nd4j:nd4j-native:0.4-rc3.9:windows-x86_64'
 
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.5'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.5'

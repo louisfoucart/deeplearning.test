@@ -95,7 +95,7 @@ public class IrisExample {
         }
 
         log.info("Evaluate model....");
-        Evaluation eval = new Evaluation<>(outputNum);
+        Evaluation eval = new Evaluation(outputNum);
         eval.eval(test.getLabels(), model.output(test.getFeatureMatrix(), Layer.TrainingMode.TEST));
         log.info(eval.stats());
 
